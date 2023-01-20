@@ -1,0 +1,27 @@
+{
+  "name": "my_team_your_team",
+  "version": "1.0.0",
+  "description": "My_Team_Your_Team",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcosauras/My_Team_Your_Team.git"
+  },
+  "author": "Marc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marcosauras/My_Team_Your_Team/issues"
+  },
+  "homepage": "https://github.com/Marcosauras/My_Team_Your_Team#readme",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "inquirer": "^8.2.4",
+    "jest": "^29.3.1"
+  }
+}
