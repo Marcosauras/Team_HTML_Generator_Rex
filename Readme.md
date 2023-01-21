@@ -24,7 +24,7 @@ If you ever find yourself getting team all mixed up this application might be ab
 
 # Demo
 Here is a link to me doing a demo of using the application
-[label](assets/recording/Team_HTML_Demo.webm)
+[Demo](assets/recording/Team_HTML_Demo.mp4)
 
 ## License
 Please refer to the license in the github repo.
