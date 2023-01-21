@@ -1,18 +1,16 @@
 const Engineer = require("../lib/Engineer");
 
 describe("name", () => {
-    it("it should be the name Sue", () => {
-    const result = new Engineer("Sue", 1, "sue@work.com", "github.com/sue");
+    it("it should be the name Meowscarada", () => {
+    const engineer = new Engineer("Meowscarada", "0908", "Meowscarada@pokemon.com", "github.com/Meow");
     
-    expect(result.name).toBe("Sue");
-    expect(result.getName()).toBe("Sue");
+    expect(engineer.name).toBe("Meowscarada");
     });
 });
-describe("EmployeeId", () => {
-    it("it should be the 1", () => {
-    const result = new Engineer("Sue", 1, "sue@work.com", "github.com/sue");
+describe("id", () => {
+    it("it should be Meowscarada@pokemon.com", () => {
+    const engineer = new Engineer("Meowscarada", "0908", "Meowscarada@pokemon.com", "github.com/Meow");
     
-    expect(result.id).toEqual(1);
-    expect(result.getId()).toEqual(1);
+    expect(engineer.gitHubId).toBe("github.com/Meow");
     });
 });

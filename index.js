@@ -79,8 +79,8 @@ function startTeamBuilder() {
             message: "Manager Phone Number:"
         }
 
-        ]).then(detail => {
-            const manager = new Manager(detail.managerName, detail.managerId, detail.managerEmail, detail.managerPhone);
+        ]).then(value => {
+            const manager = new Manager(value.managerName, value.managerId, value.managerEmail, value.managerPhone);
             employeeArray.push(manager);
             buildRestOfTeam();
         });
@@ -109,8 +109,8 @@ function startTeamBuilder() {
             message: "What is the engineer's GitHub Username?"
         }
 
-        ]).then(detail => {
-            const engineer = new Engineer(detail.engineerName, detail.engineerId, detail.engineerEmail, detail.engineerGitHub);
+        ]).then(value => {
+            const engineer = new Engineer(value.engineerName, value.engineerId, value.engineerEmail, value.engineerGitHub);
             employeeArray.push(engineer);
             buildRestOfTeam();
         });
@@ -139,8 +139,8 @@ function startTeamBuilder() {
             message: "What school does your intern go to?"
         }
 
-        ]).then(detail => {
-            const intern = new Intern(detail.internName, detail.internId, detail.internEmail, detail.internSchool);
+        ]).then(value => {
+            const intern = new Intern(value.internName, value.internId, value.internEmail, value.internSchool);
             employeeArray.push(intern);
             buildRestOfTeam();
         });
@@ -154,8 +154,8 @@ function startTeamBuilder() {
             message: "What is the name of your team?"
         }
 
-    ]).then(detail => {
-        const filename = (detail.file);
+    ]).then(value => {
+        const filename = (value.file);
         fileName.push(filename);
         createHtmlFile();
     });
@@ -170,6 +170,7 @@ function startTeamBuilder() {
         console.log("Your Team page has been created and is ready for use");
         console.log(`The name of your file is ${fileName}.html`);
         console.log("it is located inside of the dist folder");
+        console.log(employeeArray)
     }
 
     teamBuilding();

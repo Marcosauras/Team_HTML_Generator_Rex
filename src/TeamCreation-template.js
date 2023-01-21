@@ -1,16 +1,18 @@
-const teamTemplate = (team) => {
+const html = [];
+
+const createYourTeam = (team) => {
   // Creates a card to display every manager that gets inputted into the questions
-  const createManager = (manager) => {
-    return `<div class="">
-        <div class="">
-            <h2 class="">${manager.getName()}</h2>
-            <h3 class=""><i class="fas fa-mug-hot mr-2"></i>${manager.getRole()}</h3>
+  const renderManager = (manager) => {
+    return `<div class="bg-blue-400 block m-6 p-6 rounded col-span-1 sm:col-span-2 lg:col-span-3 text-center shadow-xl border-4 hover:border-double hover:border-8 border-indigo-600">
+        <div class="bg-sky-300 rounded">
+            <h2 class="font-bold text-4xl">${manager.getName()}</h2>
+            <h3 class="font-bold text-2xl">${manager.getRole()}</h3>
         </div>
-        <div class="">
-            <ul class="">
-                <li class="">Employee ID: ${manager.getId()}</li>
-                <li class="">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-                <li class="">Office number: ${manager.getOfficeNum()}</li>
+        <div>
+            <ul>
+                <li class="text-xl">Employee ID: ${manager.getId()}</li>
+                <li>Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+                <li>Office number: ${manager.getOfficeNum()}</li>
             </ul>
         </div>
     </div>
@@ -18,66 +20,63 @@ const teamTemplate = (team) => {
   };
 
   // Creates a card to display every Engineer
-  const createEngineer = (engineer) => {
+  const renderEngineer = (engineer) => {
     return `
-    <div class="">
-        <div class="">
-            <h2 class="">${engineer.getName()}</h2>
-            <h3 class=""><i class=""></i>${engineer.getRole()}</h3>
+    <div class="bg-emerald-400 block m-6 p-6 rounded border-4 hover:border-double hover:border-8 border-indigo-600">
+        <div class="bg-emerald-200 rounded">
+            <h2 class="font-bold text-4xl">${engineer.getName()}</h2>
+            <h3 class="font-bold text-2xl">${engineer.getRole()}</h3>
         </div>
-        <div class="">
-            <ul class="">
-                <li class="">Employee ID: ${engineer.getId()}</li>
-                <li class="">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-                <li class="">GitHub User: <a href="https://github.com/${engineer.getGithubId()}" target="_blank" rel="Github-link">${engineer.getGithubId()}</a></li>
+        <div>
+            <ul>
+                <li class="text-xl">Employee ID: ${engineer.getId()}</li>
+                <li>Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+                <li>GitHub User: <a href="https://github.com/${engineer.getGithubId()}" target="_blank" rel="Github-link">${engineer.getGithubId()}</a></li>
             </ul>
         </div>
     </div>
             `;
   };
+
 
   // Creates a div for each Intern entered
-  const createIntern = (intern) => {
+  const renderIntern = (intern) => {
     return `
-    <div class="">
-        <div class="">
-            <h2 class="">${intern.getName()}</h2>
-            <h3 class=""><i class="fas fa-user-graduate mr-2"></i>${intern.getRole()}</h3>
+    <div class="bg-indigo-400 block m-6 p-6 rounded border-4 hover:border-double hover:border-8 border-indigo-600"">
+        <div class="bg-indigo-200 rounded">
+            <h2 class="font-bold text-4xl">${intern.getName()}</h2>
+            <h3 class="font-bold text-2xl">${intern.getRole()}</h3>
         </div>
-        <div class="">
-            <ul class="">
-                <li class="">Employee ID: ${intern.getId()}</li>
-                <li class="">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
-                <li class="">School: ${intern.getSchool()}</li>
+        <div>
+            <ul>
+                <li class="text-xl">Employee ID: ${intern.getId()}</li>
+                <li>Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+                <li>School: ${intern.getSchool()}</li>
             </ul>
         </div>
     </div>
             `;
   };
 
-  const html = [];
 
-  // Concatenates all divs (above) for all members of the team, placing the manager(s) first, followed by engineers and the interns
-  html.push(
-    team
-      .filter((employee) => employee.getRole() === "Manager")
-      .map((manager) => createManager(manager))
-  );
-  html.push(
-    team
-      .filter((employee) => employee.getRole() === "Engineer")
-      .map((engineer) => createEngineer(engineer))
-      .join("")
-  );
-  html.push(
-    team
-      .filter((employee) => employee.getRole() === "Intern")
-      .map((intern) => createIntern(intern))
-      .join("")
-  );
+// pushes the interns the html into the array to create the html file.
+html.push(team
+    .filter(employee => employee.getRole() === "Manager")
+    .map(manager => renderManager(manager))
+);
+html.push(team
+    .filter(employee => employee.getRole() === "Engineer")
+    .map(engineer => renderEngineer(engineer))
+    .join("")
+);
+html.push(team
+    .filter(employee => employee.getRole() === "Intern")
+    .map(intern => renderIntern(intern))
+    .join("")
+);
 
-  return html.join("");
-};
+return html.join("");    
+}
 
 // export function to generate entire page
 module.exports = (team) => {
@@ -91,20 +90,12 @@ module.exports = (team) => {
     <title>${fileName}</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="">
-        <div class="">
-            <div class="">
-                <h1 class="">Team ${fileName}</h1>
-            </div>
-        </div>
+<body class="bg-sky-100">
+    <div class="bg-teal-600 h-48">
+            <h1 class="grid h-48 font-bold text-4xl md:text-6xl content-center text-center border-4 hover:border-double hover:border-8 border-indigo-600">Team ${fileName}</h1>
     </div>
-    <div class="">
-        <div class="">
-            <div class="">
-                ${teamTemplate(team)}
-            </div>
-        </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 content-evenly">
+                ${createYourTeam(team)}
     </div>
 </body>
 </html>
