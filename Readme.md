@@ -22,6 +22,9 @@ If you ever find yourself getting team all mixed up this application might be ab
 7. When you run the file it will have your styled html file. 
 ![Website Example](./assets/img/Screenshot-of-example-website.png)
 
+# Demo
+Here is a link to me doing a demo of using the application
+[label](assets/recording/Team_HTML_Demo.webm)
 
 ## License
 Please refer to the license in the github repo.
